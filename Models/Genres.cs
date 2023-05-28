@@ -1,8 +1,8 @@
 namespace Genres; 
 using Books;
 
-public class Genres
+public class Genre
 {
-    public string Genre {get; set;}
+    public string MainGenre {get; set;}
     public string Subgenre {get; set;}
 }
