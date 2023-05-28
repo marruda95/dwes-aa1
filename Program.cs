@@ -20,6 +20,32 @@ books.Add(new Book{
     }
 });
 books.Add(new Book{
+    Id = 1,
+    Author = "Sarah J Maas",
+    Price = 31.30, 
+    Name = "A Court of Mist And Fury",
+    datePublished = new DateTime(),
+    isInStock = true,
+    genre = new List<Genre>{
+        new Genre{MainGenre = "Fantasy"},
+        new Genre{Subgenre = "Romance"},
+        new Genre{Subgenre = "Young Adult"}
+    }
+});
+books.Add(new Book{
+    Id = 1,
+    Author = "Sarah J Maas",
+    Price = 34.99, 
+    Name = "A Court of Wing and Ruin",
+    datePublished = new DateTime(),
+    isInStock = true,
+    genre = new List<Genre>{
+        new Genre{MainGenre = "Fantasy"},
+        new Genre{Subgenre = "Romance"},
+        new Genre{Subgenre = "Young Adult"}
+    }
+});
+books.Add(new Book{
     Id = 2,
     Author = "Leigh Bardugo",
     Price = 19.50, 
@@ -49,11 +75,12 @@ while (exit == 0){
 
 void mainMenu(){
     // Normal Menu: First View
-    Console.Write("------ Welcome to Bookies!\n"); 
-    Console.Write("------ Please choose and option to continue\n"); 
+    Console.Write("Welcome to Bookies!\n"); 
+    Console.Write("Please choose and option to continue\n"); 
     Console.Write("......... 1 Book Catalog\n"); 
     Console.Write("......... 2 User Area\n"); 
-    Console.Write("......... 3 Exit App\n");
+    Console.Write("......... 3 Search By Author\n"); 
+    Console.Write("......... 4 Exit App\n");
 
     string chosenOption = Console.ReadLine();
 
@@ -63,11 +90,37 @@ void mainMenu(){
     } else if (chosenOption == "2") {
         exit = userMenu();
     } else if (chosenOption == "3") {
+        Console.Write("What author are you searching for?\n"); 
+        string authorLookUp = Console.ReadLine();
+        var authorSelected = books.Find( e => e.Author == authorLookUp);
+        
+    
+        Console.WriteLine($"Searching for: {authorSelected.Author} ....");
+        bool containsResult = authorLookUp.Contains($"{authorSelected.Author}");
+
+    try{
+        if (containsResult == true){
+                    Console.WriteLine("We have that author! Here are some of their books:\n");
+                    foreach (Book book in books){
+                        if (book.Author == authorSelected.Author) {
+                            Console.WriteLine($"{book.Name} ........ {book.Price} €");
+                        }
+                    }
+                    splitLine();
+                }
+    } catch (Exception e){
+        Console.WriteLine(e);
+        throw;
+    }
+         
+    
+        
+    } else if (chosenOption == "4") {
         exitingApp();
     } else {
         incorrectInput();
     }
-}
+}       
 
 int userMenu(){
     // Secondary Menu: User Area
