@@ -5,6 +5,8 @@ using Members;
 
 int exit = 0; 
 
+string langEnv = Environment.GetEnvironmentVariable("languaje");
+
 List<Book> books = new List<Book>();
 books.Add(new Book{
     Id = 1,
@@ -75,12 +77,22 @@ while (exit == 0){
 
 void mainMenu(){
     // Normal Menu: First View
-    Console.Write("Welcome to Bookies!\n"); 
-    Console.Write("Please choose and option to continue\n"); 
-    Console.Write("......... 1 Book Catalog\n"); 
-    Console.Write("......... 2 User Area\n"); 
-    Console.Write("......... 3 Search By Author\n"); 
-    Console.Write("......... 4 Exit App\n");
+    if (langEnv == "en"){
+        Console.Write("Welcome to Bookies!\n"); 
+        Console.Write("Please choose and option to continue\n"); 
+        Console.Write("......... 1 Book Catalog\n"); 
+        Console.Write("......... 2 User Area\n"); 
+        Console.Write("......... 3 Search By Author\n"); 
+        Console.Write("......... 4 Exit App\n");
+    } else {
+        Console.Write("Bienvenido a Bookies!\n"); 
+        Console.Write("Por favor, elija una opcion para continuar:\n"); 
+        Console.Write("......... 1 Catalogo de Libros\n"); 
+        Console.Write("......... 2 Area de Usuario\n"); 
+        Console.Write("......... 3 Busqueda por Autor\n"); 
+        Console.Write("......... 4 Salir\n");
+    }
+    
 
     string chosenOption = Console.ReadLine();
 
@@ -90,31 +102,7 @@ void mainMenu(){
     } else if (chosenOption == "2") {
         exit = userMenu();
     } else if (chosenOption == "3") {
-        Console.Write("What author are you searching for?\n"); 
-        string authorLookUp = Console.ReadLine();
-        var authorSelected = books.Find( e => e.Author == authorLookUp);
-        
-    
-        Console.WriteLine($"Searching for: {authorSelected.Author} ....");
-        bool containsResult = authorLookUp.Contains($"{authorSelected.Author}");
-
-    try{
-        if (containsResult == true){
-                    Console.WriteLine("We have that author! Here are some of their books:\n");
-                    foreach (Book book in books){
-                        if (book.Author == authorSelected.Author) {
-                            Console.WriteLine($"{book.Name} ........ {book.Price} €");
-                        }
-                    }
-                    splitLine();
-                }
-    } catch (Exception e){
-        Console.WriteLine(e);
-        throw;
-    }
-         
-    
-        
+        searchByAuthor();
     } else if (chosenOption == "4") {
         exitingApp();
     } else {
@@ -229,17 +217,30 @@ void addNewMember(){
 }
 
 void incorrectInput() {
-    Console.ForegroundColor = ConsoleColor.Red; 
-    Console.Write("------ INCORRECT OUTPUT ------\n");
-    Console.Write("------ Please try again ------");
+    if (langEnv == "en"){
+        Console.ForegroundColor = ConsoleColor.Red; 
+        Console.Write("------ INCORRECT INPUT ------\n");
+        Console.Write("------ Please try again ------");
+    } else { 
+        Console.ForegroundColor = ConsoleColor.Red; 
+        Console.Write("------ INPUT INCORRECT  ------\n");
+        Console.Write("------ Por favor, intentalo de nuevo ------");
+    }
     exit = 1;
     Console.ResetColor(); 
 }
 
 void exitingApp() {
-    Console.ForegroundColor = ConsoleColor.Red; 
-    Console.Write("--------- EXITING APP --------\n");
-    Console.Write("------ Come again soon! ------");
+    if(langEnv == "en") {
+        Console.ForegroundColor = ConsoleColor.Red; 
+        Console.Write("--------- EXITING APP --------\n");
+        Console.Write("------ Come again soon! ------");
+    } else {
+        Console.ForegroundColor = ConsoleColor.Red; 
+        Console.Write("--------- SALIENDO DE APP --------\n");
+        Console.Write("------ Nos vemos proximamente! ------");
+    }
+    
     exit = 1; 
     Console.ResetColor();
 }
@@ -248,4 +249,28 @@ void splitLine(){
     Console.ForegroundColor = ConsoleColor.Blue;
     Console.Write("----------------------------------------------\n");
     Console.ResetColor();
+}
+
+void searchByAuthor(){
+ Console.Write("What author are you searching for?\n"); 
+        string authorLookUp = Console.ReadLine();
+        var authorSelected = books.Find( e => e.Author == authorLookUp);
+        
+    
+        Console.WriteLine($"Searching for: {authorSelected.Author} ....");
+        bool containsResult = authorLookUp.Contains($"{authorSelected.Author}");
+        try{
+            if (containsResult == true){
+                        Console.WriteLine("We have that author! Here are some of their books:\n");
+                        foreach (Book book in books){
+                            if (book.Author == authorSelected.Author) {
+                                Console.WriteLine($"{book.Name} ........ {book.Price} €");
+                            }
+                        }
+                        splitLine();
+                    }
+        } catch (Exception e){
+            Console.WriteLine(e);
+            throw;
+        }
 }
