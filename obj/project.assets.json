@@ -78,26 +78,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\A8-PC100\\.nuget\\packages\\": {}
+    "/Users/arrudmar/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\A8-PC100\\Desktop\\dwes\\dwes.csproj",
+      "projectUniqueName": "/Users/arrudmar/Desktop/svalero/dwes/dwes-aa1/dwes.csproj",
       "projectName": "dwes",
-      "projectPath": "C:\\Users\\A8-PC100\\Desktop\\dwes\\dwes.csproj",
-      "packagesPath": "C:\\Users\\A8-PC100\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\A8-PC100\\Desktop\\dwes\\obj\\",
+      "projectPath": "/Users/arrudmar/Desktop/svalero/dwes/dwes-aa1/dwes.csproj",
+      "packagesPath": "/Users/arrudmar/.nuget/packages/",
+      "outputPath": "/Users/arrudmar/Desktop/svalero/dwes/dwes-aa1/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\A8-PC100\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/arrudmar/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -137,7 +135,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.405\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.405/RuntimeIdentifierGraph.json"
       }
     }
   }
