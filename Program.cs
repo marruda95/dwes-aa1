@@ -48,10 +48,11 @@ while (exit == 0){
 }
 
 void mainMenu(){
+    // Normal Menu: First View
     Console.Write("------ Welcome to Bookies!\n"); 
     Console.Write("------ Please choose and option to continue\n"); 
     Console.Write("......... 1 Book Catalog\n"); 
-    Console.Write("......... 2 Log In\n"); 
+    Console.Write("......... 2 User Area\n"); 
     Console.Write("......... 3 Exit App\n");
 
     string chosenOption = Console.ReadLine();
@@ -69,17 +70,20 @@ void mainMenu(){
 }
 
 int userMenu(){
+    // Secondary Menu: User Area
      Console.ForegroundColor = ConsoleColor.Cyan;
      Console.Write("------- Welcome Back! ------\n");
      Console.Write("------    (or not)    ------\n");
      Console.ResetColor();
-     Console.Write("......... 1 Log In\n"); 
+     Console.Write("......... 1 Members Login\n"); 
      Console.Write("......... 2 Sign Up\n");
      Console.Write("......... 3 Back to Main Menu\n");
 
      string optionUserMenu = Console.ReadLine();
 
+    
      if (optionUserMenu == "1"){
+        // Login 
         Console.ForegroundColor = ConsoleColor.Yellow;
         Console.Write("Please follow the instructions on screen:\n ");
         Console.ResetColor();
@@ -108,9 +112,9 @@ int userMenu(){
 
         splitLine();
         return 0;
-
+    
      } else if (optionUserMenu == "2"){
-
+        // Sign Up
         addNewMember();
 
         splitLine();
