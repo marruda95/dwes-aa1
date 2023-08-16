@@ -10,5 +10,5 @@ public class Book
     public double Price {get; set;}
     public DateTime datePublished {get; set;}
     public bool isInStock {get; set;}
-
+    public int stock {get; set;}
 }
