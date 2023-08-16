@@ -1,3 +1,5 @@
+using Books;
+
 namespace Members;
 
 public class Member
@@ -8,5 +10,7 @@ public class Member
    public string Password {get; set;}
    public DateTime SignupDate {get; set;}
    public bool hasDiscount {get; set;}
+   public List<Book> bookList {get; set;}
+   
  
 }
