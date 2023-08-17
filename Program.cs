@@ -20,7 +20,7 @@ var members = config.defaultUser(memberList);
 var bookList = new List<Book>();
 var books = config.defaultBooks(bookList);
 
-_logger.LogInformation("App started");
+_logger.LogInformation("App Started");
 
 AnsiConsole.Write(new FigletText("BOOKIES").Color(ConsoleColor.Blue));
 
@@ -70,14 +70,19 @@ void mainMenu(){
         bookService.showCatalog(books);
         commonService.splitLine();
         } else if (chosenOption == "2") {
+            _logger.LogInformation("User Login");
             exit = userService.userMenu(langEnv, members);
         } else if (chosenOption == "3") {
+            _logger.LogInformation("User ordered book");
             books = bookService.orderBook(books);
         } else if (chosenOption == "4") {
+            _logger.LogInformation("User searched for author");
             bookService.searchByAuthor(books);
         } else if (chosenOption == "5") {
+            _logger.LogInformation("App Exited");
             exit = commonService.exitingApp(langEnv);
         } else {
+            _logger.LogInformation("Incorrect Input");
             exit = commonService.incorrectInput(langEnv); 
         }
     }
@@ -87,12 +92,16 @@ void mainMenu(){
         bookService.showCatalog(books);
         commonService.splitLine();
         } else if (chosenOption == "2") {
+            _logger.LogInformation("User Login");
             exit = userService.userMenu(langEnv, members);
         } else if (chosenOption == "3") {
+            _logger.LogInformation("User searched for author");
             bookService.searchByAuthor(books);
         } else if (chosenOption == "4") {
+            _logger.LogInformation("App Exited");
            exit = commonService.exitingApp(langEnv);
          } else {
+            _logger.LogInformation("Incorrect Input");
             exit = commonService.incorrectInput(langEnv); 
         } 
     }
