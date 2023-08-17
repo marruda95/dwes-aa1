@@ -9,10 +9,10 @@ Esta aplicación simula la reserva de una biblioteca, donde un usuario sin regis
 - docker build -t marruda95/appconsole_dwes:en .
 - docker push marruda95/appconsole_dwes:es
 - docker push marruda95/appconsole_dwes:en 
-- docker run -it  -v /logs -p 5416 aa1dwes:es
+- docker run -it  -v /logs -p 5416 marruda95/appconsole_dwes:es
 - docker exec -it CONTAINER /bin/bash
-- docker pull marruda95/aa1dwes:es
-- docker run -it --rm -v /logs marruda95/aa1dwes:es
+- docker pull marruda95/appconsole_dwes:es
+- docker run -it --rm -v /logs marruda95/appconsole_dwes:es
 
 ###### Especificaciones
 - Menú principal y secundarios para navegar entre las funcionalidades interactuando a través de la consola de la aplicación.
