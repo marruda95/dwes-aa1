@@ -23,7 +23,6 @@ Esta aplicación simula la reserva de una biblioteca, donde un usuario sin regis
 - Funcionalidad de búsqueda: buscar por autor.
 - App contenerizada + Subida
 - Utilizavión de Git y metodología Gitflow.
-- Almacenamiento de datos en ficheros Json
 - Gestión de logs con Nlog.
 - Variables de entorno que modifican la app por idioma.
 - Interfaz mejorada con Spectre.Console
