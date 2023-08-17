@@ -5,8 +5,10 @@
 Esta aplicación simula la reserva de una biblioteca, donde un usuario sin registrar puede encontrar un catálogo de libros, o buscar un autor en concreto. Si el usuario tiene usuario, puede acceder a reservar un libro del catálogo si hay ejemplares o si existe. 
 
 ###### Docker
-- docker build -t aa1dwes:es .
-- docker build -t aa1dwes:en .
+- docker build -t marruda95/appconsole_dwes:es .
+- docker build -t marruda95/appconsole_dwes:en .
+- docker push marruda95/appconsole_dwes:es
+- docker push marruda95/appconsole_dwes:en 
 - docker run -it  -v /logs -p 5416 aa1dwes:es
 - docker exec -it CONTAINER /bin/bash
 - docker pull marruda95/aa1dwes:es
